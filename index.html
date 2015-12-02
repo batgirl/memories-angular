@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html ng-app="memories-app">
   <head>
-    <link rel="stylesheet" type="text/css" href="css/app.css">
     <base href="/">
+    <link rel="stylesheet" type="text/css" href="css/app.css">
   </head>
   <body>
     <h1>Memories App</h1>
+    <div ng-controller="SidebarController">
+      <ul ng-show="selectedYear">
+        <li>
+          <a ng-click="clearSelectedYear()" href='/'>Home</a>
+        </li>
+      </ul>
+      <ul ng-repeat="year in allYears">
+        <li ng-class="{selected: selectedYear == year.year}">
+          <a href="/{{year.year}}">{{year.year}}</a>
+        </li>
+      </ul>
+    </div>
     <ng-view></ng-view>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/X.Y.Z/angular-route.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
   </body>
 </html>
