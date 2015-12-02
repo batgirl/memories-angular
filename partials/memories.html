@@ -1,0 +1,13 @@
+<form ng-submit="submit()">
+  <label>I was born in the year <input type="text" ng-model="memory.year" name="year">.</label>
+  <label>Back in the old days, <input type="text" ng-model="memory.old_days" name="old_days">.</label>
+  <label>But now these days, <input type="text" ng-model="memory.these_days" name="these_days">.</label>
+  <input type="submit">
+</form>
+<div ng-controller="MemoriesController">
+  <div class="memory" ng-repeat="memory in allMemories">
+    <p><span class="bold">In the old days:</span> {{memory.old_days}}</p>
+    <p><span class="bold">Nowadays:</span> {{memory.these_days}}</p>
+    <p><span class="bold">I was born in:</span> {{memory.year}}</p>
+  </div>
+</div>
